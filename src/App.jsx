@@ -35,7 +35,24 @@ function App() {
   todoText.toLowerCase().includes(searchValue.toLowerCase())
 );  ALTERNATIVA*/
 
-  console.log(`The users wrote ${searchValue}`)
+  const completeTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex(todo => todo.text === text)
+    newTodos[todoIndex].completed = !newTodos[todoIndex].completed;
+    setTodos(newTodos)
+  }
+
+  /* const deleteTodo = (text) => {
+    const newTodos = [...todos]
+    const todoIndex = newTodos.findIndex(todo => todo.text === text)
+    newTodos.splice(todoIndex, 1)
+    setTodos(newTodos) ALTERNATIVA CON SPLICE
+  } */
+
+  const deleteTodo = (text) => {
+    const newTodos = todos.filter(todo => todo.text !== text)
+    setTodos(newTodos)
+  }
 
   return (
     <>
@@ -55,6 +72,8 @@ function App() {
             key={todo.text}
             text={todo.text}
             completed={todo.completed}
+            onComplete={() => completeTodo(todo.text)}
+            onDelete={() => deleteTodo(todo.text)}
             />
         ))
 
