@@ -11,7 +11,7 @@ const defaultTodos = [
   { text: 'Take the introductory course to React', completed: false },
   { text: 'Cry with the crier', completed: false },
   { text: 'Daily code', completed: false},
-  { text: 'House choresv2', completed: false},
+  { text: 'House choresv3', completed: false},
 ]
 
 function App() {
