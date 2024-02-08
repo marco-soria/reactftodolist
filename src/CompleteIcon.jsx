@@ -1,13 +1,15 @@
 import React from 'react'
-import { TodoIcon } from './TodoIcon'
+import { FaCheck } from "react-icons/fa6";
 
-function CompleteIcon() {
-    return (
-        <TodoIcon>
-            type="check"
-            color="red"
-        </TodoIcon>
-    )
+
+const CompleteIcon = (props) => {
+    const {className, onClick} = props
+  return (
+    <FaCheck
+        className={className}
+        onClick={onClick}
+    />
+  )
 }
 
-export { CompleteIcon }
+export {CompleteIcon}

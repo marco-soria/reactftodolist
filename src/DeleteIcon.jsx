@@ -1,13 +1,14 @@
 import React from 'react'
-import { TodoIcon } from './TodoIcon'
+import { FaXmark } from "react-icons/fa6";
 
-function DeleteIcon() {
-    return (
-        <TodoIcon>
-            type="delete"
-            color="blue"
-        </TodoIcon>
-    )
+const DeleteIcon = (props) => {
+    const {className, onClick} = props
+  return (
+    <FaXmark
+        className={className}
+        onClick={onClick}
+    />
+  )
 }
 
-export { DeleteIcon }
+export {DeleteIcon}
