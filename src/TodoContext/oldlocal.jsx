@@ -13,7 +13,6 @@ function useLocalStorage(itemName, initialValue) {
         let parsedItem;
   
         if (!localStorageItem) {
-          // Si no hay un item en localStorage, establece el valor inicial
           localStorage.setItem(itemName, JSON.stringify(initialValue));
           parsedItem = initialValue;
         } else {
@@ -27,7 +26,7 @@ function useLocalStorage(itemName, initialValue) {
         setError(true);
       }
     }, 2000);
-  }, [itemName, initialValue]); // Agregar itemName e initialValue como dependencias
+  });
 
   const saveItem = (newItem) => {
     localStorage.setItem(itemName, JSON.stringify(newItem));
@@ -42,12 +41,17 @@ function useLocalStorage(itemName, initialValue) {
   };
 }
 
-const defaultTodos = [
-  { text: 'Cut onions', completed: true },
-  { text: 'Take the introductory course to React.js', completed: false },
-  { text: 'Cry with the crier', completed: false },
-  { text: 'LALALALALA', completed: false },
-  { text: 'Use this fantastic app', completed: true },
-];
+export { useLocalStorage };
 
-export { useLocalStorage, defaultTodos };
+
+// localStorage.removeItem('TODOS_V1');
+
+// const defaultTodos = [
+//   { text: 'Cut onions', completed: true },
+//   { text: 'Take the introductory course to React.js', completed: false },
+//   { text: 'Cry with the crier', completed: false },
+//   { text: 'LALALALALA', completed: false },
+//   { text: 'Use this fantastic app', completed: true },
+// ];
+
+// localStorage.setItem('TODOS_V1', JSON.stringify(defaultTodos));
